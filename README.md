@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 띵동 어린이체육교실 (ddingdong)
 
-## Getting Started
+띵동 어린이체육교실의 공식 홈페이지입니다. Next.js와 Tailwind CSS를 사용하여 구축되었습니다.
 
-First, run the development server:
+## 주요 기능
+
+- **홈페이지**: 서비스 소개 및 핵심 가치 안내
+- **프로그램**: 연령별 맞춤 체육 프로그램 소개
+- **강사진**: 전문 강사진 프로필 확인
+- **후기**: 학부모 및 교육기관의 생생한 후기
+- **문의하기**: 간편한 상담 신청 폼
+
+## 시작하기
+
+먼저 의존성을 설치합니다:
+
+```bash
+npm install
+```
+
+그 후, 개발 서버를 실행합니다:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+브라우저에서 [http://localhost:3000](http://localhost:3000)을 열어 결과를 확인하세요.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 기술 스택
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework**: Next.js 16 (App Router)
+- **Styling**: Tailwind CSS, Vanilla CSS
+- **Language**: TypeScript
 
-## Learn More
+## 배포
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+이 프로젝트는 Vercel을 통해 자동 배포되도록 설정되어 있습니다. GitHub `main` 브랜치에 푸시하면 자동으로 배포가 시작됩니다.
