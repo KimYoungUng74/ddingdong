@@ -127,84 +127,84 @@ export default function Hero() {
           </div>
 
           {/* Right: visual */}
-          <div className="animate-fade-up relative h-[320px] sm:h-[400px] lg:h-[580px] mt-8 lg:mt-0" style={{ animationDelay: "0.2s" }}>
-
-            {/* Main character image — large floating */}
+          <div className="animate-fade-up relative mt-8 lg:mt-0 flex items-center justify-center" style={{ animationDelay: "0.2s" }}>
+            
+            {/* Main character image — in-flow for better scaling */}
             <div style={{
-              position: "absolute",
-              top: "50%", left: "50%",
-              transform: "translate(-50%, -50%)",
-              width: "80%", // Reduced from 92% to prevent cutting on mobile
-              maxWidth: "100%",
+              width: "85%", // Safe width for mobile
+              maxWidth: "500px", // Prevent it from becoming too huge
               filter: "drop-shadow(0 24px 40px rgba(50,67,92,0.18))",
-            }} className="animate-float">
+              position: "relative",
+              zIndex: 1
+            }} className="animate-float lg:w-full">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/logo-horizontal.png" alt="띵동 캐릭터" style={{ width: "100%", height: "auto" }} />
-            </div>
+              <img src="/assets/logo-horizontal.png" alt="띵동 캐릭터" style={{ width: "100%", height: "auto", display: "block" }} />
 
-            {/* Sticker labels - Adjusting positions for mobile */}
-            <div style={{
-              position: "absolute", top: 20, right: "2%",
-              padding: "10px 16px",
-              background: "var(--white)",
-              borderRadius: 16,
-              boxShadow: "var(--shadow-md)",
-              display: "flex", alignItems: "center", gap: 8,
-              transform: "rotate(6deg)",
-              zIndex: 5
-            }} className="animate-float-soft">
-              <div style={{ width: 28, height: 28, borderRadius: "50%", background: "var(--coral-bg)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14 }}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              {/* Sticker labels - now relative to the image container for better tracking */}
+              <div style={{
+                position: "absolute", top: "-5%", right: "-5%",
+                padding: "10px 16px",
+                background: "var(--white)",
+                borderRadius: 16,
+                boxShadow: "var(--shadow-md)",
+                display: "flex", alignItems: "center", gap: 8,
+                transform: "rotate(6deg)",
+                zIndex: 5
+              }} className="animate-float-soft">
+                <div style={{ width: 28, height: 28, borderRadius: "50%", background: "var(--coral-bg)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14 }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                  </svg>
+                </div>
+                <div style={{ textAlign: "left" }}>
+                  <div style={{ fontSize: 10, fontWeight: 800, color: "var(--ink-3)", letterSpacing: "0.08em" }}>SAFE</div>
+                  <div style={{ fontSize: 12, fontWeight: 800, color: "var(--ink)" }}>안전 100%</div>
+                </div>
+              </div>
+
+              <div style={{
+                position: "absolute", bottom: "5%", left: "-5%",
+                padding: "10px 16px",
+                background: "var(--white)",
+                borderRadius: 16,
+                boxShadow: "var(--shadow-md)",
+                display: "flex", alignItems: "center", gap: 8,
+                transform: "rotate(-5deg)",
+                animationDelay: "0.5s",
+                zIndex: 5
+              }} className="animate-float-soft">
+                <div style={{ width: 28, height: 28, borderRadius: "50%", background: "var(--blue-bg)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <div style={{ textAlign: "left" }}>
+                  <div style={{ fontSize: 10, fontWeight: 800, color: "var(--ink-3)", letterSpacing: "0.08em" }}>PARENTS</div>
+                  <div style={{ fontSize: 12, fontWeight: 800, color: "var(--ink)" }}>만족도 98%</div>
+                </div>
+              </div>
+
+              <div style={{
+                position: "absolute", bottom: "-5%", right: "0%",
+                width: 72, height: 72, borderRadius: "50%",
+                background: "var(--yellow)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                fontWeight: 900, fontSize: 10, letterSpacing: "0.1em",
+                color: "var(--ink)", textAlign: "center",
+                boxShadow: "0 12px 24px rgba(255, 217, 100, 0.6)",
+                zIndex: 5
+              }} className="animate-spin-slow">
+                <svg viewBox="0 0 100 100" width="100%" height="100%" style={{ position: "absolute" }}>
+                  <defs>
+                    <path id="circlePath" d="M 50, 50 m -34, 0 a 34,34 0 1,1 68,0 a 34,34 0 1,1 -68,0"/>
+                  </defs>
+                  <text fontSize="11" fontWeight="900" fill="var(--ink)" letterSpacing="2">
+                    <textPath href="#circlePath">★ HAPPY · KIDS · </textPath>
+                  </text>
                 </svg>
               </div>
-              <div style={{ textAlign: "left" }}>
-                <div style={{ fontSize: 10, fontWeight: 800, color: "var(--ink-3)", letterSpacing: "0.08em" }}>SAFE</div>
-                <div style={{ fontSize: 12, fontWeight: 800, color: "var(--ink)" }}>안전 100%</div>
-              </div>
             </div>
 
-            <div style={{
-              position: "absolute", bottom: 40, left: "2%",
-              padding: "10px 16px",
-              background: "var(--white)",
-              borderRadius: 16,
-              boxShadow: "var(--shadow-md)",
-              display: "flex", alignItems: "center", gap: 8,
-              transform: "rotate(-5deg)",
-              animationDelay: "0.5s",
-              zIndex: 5
-            }} className="animate-float-soft">
-              <div style={{ width: 28, height: 28, borderRadius: "50%", background: "var(--blue-bg)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-              </div>
-              <div style={{ textAlign: "left" }}>
-                <div style={{ fontSize: 10, fontWeight: 800, color: "var(--ink-3)", letterSpacing: "0.08em" }}>PARENTS</div>
-                <div style={{ fontSize: 12, fontWeight: 800, color: "var(--ink)" }}>만족도 98%</div>
-              </div>
-            </div>
-
-            <div style={{
-              position: "absolute", bottom: 20, right: "5%",
-              width: 72, height: 72, borderRadius: "50%",
-              background: "var(--yellow)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontWeight: 900, fontSize: 10, letterSpacing: "0.1em",
-              color: "var(--ink)", textAlign: "center",
-              boxShadow: "0 12px 24px rgba(255, 217, 100, 0.6)",
-              zIndex: 5
-            }} className="animate-spin-slow">
-              <svg viewBox="0 0 100 100" width="100%" height="100%" style={{ position: "absolute" }}>
-                <defs>
-                  <path id="circlePath" d="M 50, 50 m -34, 0 a 34,34 0 1,1 68,0 a 34,34 0 1,1 -68,0"/>
-                </defs>
-                <text fontSize="11" fontWeight="900" fill="var(--ink)" letterSpacing="2">
-                  <textPath href="#circlePath">★ HAPPY · KIDS · </textPath>
-                </text>
-              </svg>
-            </div>
           </div>
         </div>
       </div>
