@@ -30,7 +30,7 @@ export default function Hero() {
       </div>
 
       <div className="container" style={{ position: "relative", zIndex: 2 }}>
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-[60px] items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-[40px] lg:gap-[60px] items-center text-center lg:text-left">
           {/* Left: copy */}
           <div className="animate-fade-up">
             <div style={{ 
@@ -43,10 +43,10 @@ export default function Hero() {
             </div>
 
             <h1 style={{
-              fontSize: "clamp(40px, 5.6vw, 76px)",
+              fontSize: "clamp(36px, 5.6vw, 76px)",
               fontWeight: 900,
               letterSpacing: "-0.045em",
-              lineHeight: 1.05,
+              lineHeight: 1.1,
               margin: 0,
               color: "var(--ink)",
             }}>
@@ -55,19 +55,21 @@ export default function Hero() {
             </h1>
 
             <p style={{
-              fontSize: 19,
-              lineHeight: 1.65,
+              fontSize: 18,
+              lineHeight: 1.6,
               color: "var(--ink-2)",
-              marginTop: 28,
-              marginBottom: 36,
+              marginTop: 24,
+              marginBottom: 32,
               maxWidth: 540,
               fontWeight: 500,
-            }}>
+              marginLeft: "auto",
+              marginRight: "auto",
+            }} className="lg:ml-0">
               안전한 환경에서 마음껏 뛰놀며 건강한 몸과 즐거운 마음을 키워요.
               5세부터 초등까지, 연령별 맞춤 커리큘럼으로 우리 아이의 운동 자신감을 길러드립니다.
             </p>
 
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }} className="lg:justify-start">
               <button 
                 onClick={() => scrollTo("contact")} 
                 style={{
@@ -104,19 +106,19 @@ export default function Hero() {
             {/* Trust stats */}
             <div style={{
               display: "grid", gridTemplateColumns: "repeat(3, 1fr)",
-              gap: 24, marginTop: 64,
+              gap: 16, marginTop: 48,
               paddingTop: 32, borderTop: "1px solid var(--line)",
             }}>
               {[
-                { n: "200+", l: "제휴 유치원·어린이집" },
-                { n: "5,000명", l: "누적 수강생" },
-                { n: "8년", l: "아동 체육 운영 노하우" },
+                { n: "200+", l: "제휴 기관" },
+                { n: "5,000명", l: "누적 학생" },
+                { n: "8년", l: "운영 노하우" },
               ].map((s) => (
                 <div key={s.l}>
-                  <div style={{ fontSize: 32, fontWeight: 900, color: "var(--ink)", letterSpacing: "-0.03em", lineHeight: 1 }}>
+                  <div style={{ fontSize: "clamp(24px, 4vw, 32px)", fontWeight: 900, color: "var(--ink)", letterSpacing: "-0.03em", lineHeight: 1 }}>
                     {s.n}
                   </div>
-                  <div style={{ fontSize: 13, fontWeight: 600, color: "var(--ink-3)", marginTop: 8 }}>
+                  <div style={{ fontSize: 12, fontWeight: 600, color: "var(--ink-3)", marginTop: 6 }}>
                     {s.l}
                   </div>
                 </div>
@@ -125,77 +127,81 @@ export default function Hero() {
           </div>
 
           {/* Right: visual */}
-          <div className="animate-fade-up relative h-[400px] lg:h-[580px] mt-12 lg:mt-0" style={{ animationDelay: "0.2s" }}>
+          <div className="animate-fade-up relative h-[320px] sm:h-[400px] lg:h-[580px] mt-8 lg:mt-0" style={{ animationDelay: "0.2s" }}>
 
             {/* Main character image — large floating */}
             <div style={{
               position: "absolute",
               top: "50%", left: "50%",
               transform: "translate(-50%, -50%)",
-              width: "92%",
+              width: "80%", // Reduced from 92% to prevent cutting on mobile
+              maxWidth: "100%",
               filter: "drop-shadow(0 24px 40px rgba(50,67,92,0.18))",
             }} className="animate-float">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/logo-horizontal.png" alt="띵동 캐릭터" style={{ width: "100%" }} />
+              <img src="/assets/logo-horizontal.png" alt="띵동 캐릭터" style={{ width: "100%", height: "auto" }} />
             </div>
 
-            {/* Sticker labels */}
+            {/* Sticker labels - Adjusting positions for mobile */}
             <div style={{
-              position: "absolute", top: 40, right: "5%",
-              padding: "14px 20px",
+              position: "absolute", top: 20, right: "2%",
+              padding: "10px 16px",
               background: "var(--white)",
-              borderRadius: 20,
+              borderRadius: 16,
               boxShadow: "var(--shadow-md)",
-              display: "flex", alignItems: "center", gap: 10,
+              display: "flex", alignItems: "center", gap: 8,
               transform: "rotate(6deg)",
+              zIndex: 5
             }} className="animate-float-soft">
-              <div style={{ width: 36, height: 36, borderRadius: "50%", background: "var(--coral-bg)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+              <div style={{ width: 28, height: 28, borderRadius: "50%", background: "var(--coral-bg)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14 }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--coral)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                 </svg>
               </div>
-              <div>
-                <div style={{ fontSize: 11, fontWeight: 800, color: "var(--ink-3)", letterSpacing: "0.08em" }}>SAFE & FUN</div>
-                <div style={{ fontSize: 14, fontWeight: 800, color: "var(--ink)" }}>안전 매뉴얼 100%</div>
+              <div style={{ textAlign: "left" }}>
+                <div style={{ fontSize: 10, fontWeight: 800, color: "var(--ink-3)", letterSpacing: "0.08em" }}>SAFE</div>
+                <div style={{ fontSize: 12, fontWeight: 800, color: "var(--ink)" }}>안전 100%</div>
               </div>
             </div>
 
             <div style={{
-              position: "absolute", bottom: 100, left: 0,
-              padding: "14px 20px",
+              position: "absolute", bottom: 40, left: "2%",
+              padding: "10px 16px",
               background: "var(--white)",
-              borderRadius: 20,
+              borderRadius: 16,
               boxShadow: "var(--shadow-md)",
-              display: "flex", alignItems: "center", gap: 10,
+              display: "flex", alignItems: "center", gap: 8,
               transform: "rotate(-5deg)",
-              animationDelay: "0.5s"
+              animationDelay: "0.5s",
+              zIndex: 5
             }} className="animate-float-soft">
-              <div style={{ width: 36, height: 36, borderRadius: "50%", background: "var(--blue-bg)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+              <div style={{ width: 28, height: 28, borderRadius: "50%", background: "var(--blue-bg)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
                   <path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                 </svg>
               </div>
-              <div>
-                <div style={{ fontSize: 11, fontWeight: 800, color: "var(--ink-3)", letterSpacing: "0.08em" }}>PARENTS LOVE</div>
-                <div style={{ fontSize: 14, fontWeight: 800, color: "var(--ink)" }}>학부모 만족도 98%</div>
+              <div style={{ textAlign: "left" }}>
+                <div style={{ fontSize: 10, fontWeight: 800, color: "var(--ink-3)", letterSpacing: "0.08em" }}>PARENTS</div>
+                <div style={{ fontSize: 12, fontWeight: 800, color: "var(--ink)" }}>만족도 98%</div>
               </div>
             </div>
 
             <div style={{
-              position: "absolute", bottom: 30, right: "10%",
-              width: 84, height: 84, borderRadius: "50%",
+              position: "absolute", bottom: 20, right: "5%",
+              width: 72, height: 72, borderRadius: "50%",
               background: "var(--yellow)",
               display: "flex", alignItems: "center", justifyContent: "center",
-              fontWeight: 900, fontSize: 11, letterSpacing: "0.1em",
+              fontWeight: 900, fontSize: 10, letterSpacing: "0.1em",
               color: "var(--ink)", textAlign: "center",
               boxShadow: "0 12px 24px rgba(255, 217, 100, 0.6)",
+              zIndex: 5
             }} className="animate-spin-slow">
               <svg viewBox="0 0 100 100" width="100%" height="100%" style={{ position: "absolute" }}>
                 <defs>
                   <path id="circlePath" d="M 50, 50 m -34, 0 a 34,34 0 1,1 68,0 a 34,34 0 1,1 -68,0"/>
                 </defs>
                 <text fontSize="11" fontWeight="900" fill="var(--ink)" letterSpacing="2">
-                  <textPath href="#circlePath">★ HAPPY · KIDS · DDINGDONG · </textPath>
+                  <textPath href="#circlePath">★ HAPPY · KIDS · </textPath>
                 </text>
               </svg>
             </div>
