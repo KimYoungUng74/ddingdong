@@ -27,15 +27,35 @@ function Field({ label, required, hint, children }: { label: string; required?: 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", phone: "", age: "", message: "", agree: false });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.agree || !form.name || !form.phone) return;
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setForm({ name: "", phone: "", age: "", message: "", agree: false });
-    }, 3500);
+    
+    setLoading(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+        setTimeout(() => {
+          setSubmitted(false);
+          setForm({ name: "", phone: "", age: "", message: "", agree: false });
+        }, 3500);
+      } else {
+        alert("메일 전송에 실패했습니다. 잠시 후 다시 시도해주세요.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("오류가 발생했습니다.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputStyle = {
